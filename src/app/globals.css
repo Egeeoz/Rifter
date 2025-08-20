@@ -1,5 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Gantari:ital,wght@0,100..900;1,100..900&family=Yellowtail&display=swap');
 @import 'tailwindcss';
-@import "tw-animate-css";
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -116,5 +117,15 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Gantari', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+}
+
+@layer utilities {
+  .yellowtail-regular {
+    font-family: 'Yellowtail', cursive;
   }
 }
