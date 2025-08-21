@@ -9,11 +9,11 @@ import {
 
 const Navbar = () => {
   return (
-    <nav className="grid grid-cols-[1fr_auto_1fr] border-b-2 border-b-[--foreground] py-3 justify-center items-center">
-      <h1 className="yellowtail-regular justify-self-start pl-10 text-4xl">
+    <nav className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] border-b-2 border-b-[--foreground] py-3 justify-center items-center">
+      <h1 className="yellowtail-regular md:justify-self-start md:pl-10 text-4xl text-center">
         Rifter
       </h1>
-      <NavigationMenu viewport={false} className="dark">
+      <NavigationMenu viewport={false} className="dark hidden md:flex">
         <NavigationMenuList>
           <NavigationMenuItem>
             <NavigationMenuLink>Comp generator</NavigationMenuLink>
@@ -38,7 +38,10 @@ const Navbar = () => {
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
-      <NavigationMenu viewport={false} className="dark justify-self-end pr-10">
+      <NavigationMenu
+        viewport={false}
+        className="dark justify-self-end pr-10 hidden md:flex"
+      >
         <NavigationMenuList className="gap-1.5">
           <NavigationMenuItem>
             <NavigationMenuLink>Create an account</NavigationMenuLink>
