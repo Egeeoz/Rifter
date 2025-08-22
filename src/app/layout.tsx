@@ -1,5 +1,7 @@
 import Navbar from '@/customComponents/navbar';
 import './globals.css';
+import Footer from '@/customComponents/footer';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -7,9 +9,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body>
+      <body className="flex flex-col">
         <Navbar />
-        {children}
+        <main className="min-h-screen">{children}</main>
+        <Footer />
       </body>
     </html>
   );
