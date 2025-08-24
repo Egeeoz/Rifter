@@ -47,7 +47,9 @@ const Navbar = () => {
         <NavigationMenu viewport={false} className="dark hidden md:flex">
           <NavigationMenuList className="gap-1.5">
             <NavigationMenuItem>
-              <NavigationMenuLink>Create an account</NavigationMenuLink>
+              <NavigationMenuLink href="/signup">
+                Create an account
+              </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuLink href="/login">Login</NavigationMenuLink>
