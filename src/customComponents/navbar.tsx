@@ -50,7 +50,7 @@ const Navbar = () => {
               <NavigationMenuLink>Create an account</NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink>Login</NavigationMenuLink>
+              <NavigationMenuLink href="/login">Login</NavigationMenuLink>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
