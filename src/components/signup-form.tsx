@@ -11,7 +11,8 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Link from 'next/link';
-import { useFormStatus, useFormState } from 'react-dom';
+import { useFormStatus } from 'react-dom';
+import { useActionState } from 'react';
 import { signUp } from '@/app/actions/auth';
 
 function SignUpButton() {
@@ -28,7 +29,7 @@ export function SignUpForm({
   className,
   ...props
 }: React.ComponentProps<'div'>) {
-  const [state, formAction] = useFormState(signUp, null);
+  const [state, formAction] = useActionState(signUp, null);
 
   return (
     <div className={cn('flex flex-col gap-6', className)} {...props}>
@@ -45,6 +46,10 @@ export function SignUpForm({
                   {state.error}
                 </div>
               )}
+              <div className="grid gap-3">
+                <Label htmlFor="username">Username</Label>
+                <Input id="username" type="text" name="username" required />
+              </div>
               <div className="grid gap-3">
                 <Label htmlFor="email">Email</Label>
                 <Input
