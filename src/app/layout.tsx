@@ -12,11 +12,12 @@ export default function RootLayout({
 }>) {
   const pathName = usePathname();
   const isLoginPage = pathName === '/login';
+  const isSignUpPage = pathName === '/signup';
 
   return (
     <html lang="en" className="dark">
       <body className="flex flex-col">
-        {!isLoginPage && <Navbar />}
+        {!isLoginPage && !isSignUpPage && <Navbar />}
         <main className="min-h-screen">{children}</main>
         <Footer />
       </body>

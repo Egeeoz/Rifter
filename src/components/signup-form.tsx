@@ -13,32 +13,30 @@ import { Label } from '@/components/ui/label';
 import Link from 'next/link';
 import { useFormStatus } from 'react-dom';
 import { useActionState } from 'react';
-import { login } from '@/app/actions/auth';
+import { signUp } from '@/app/actions/auth';
 
-function LoginButton() {
+function SignUpButton() {
   const { pending } = useFormStatus();
 
   return (
     <Button type="submit" className="w-full" disabled={pending}>
-      {pending ? 'Logging in...' : 'Login'}
+      {pending ? 'Creating account...' : 'Create account'}
     </Button>
   );
 }
 
-export function LoginForm({
+export function SignUpForm({
   className,
   ...props
 }: React.ComponentProps<'div'>) {
-  const [state, formAction] = useActionState(login, null);
+  const [state, formAction] = useActionState(signUp, null);
 
   return (
     <div className={cn('flex flex-col gap-6', className)} {...props}>
       <Card>
         <CardHeader>
-          <CardTitle>Login to your account</CardTitle>
-          <CardDescription>
-            Enter your email below to login to your account
-          </CardDescription>
+          <CardTitle>Create your own account</CardTitle>
+          <CardDescription>Enter a email and password below</CardDescription>
         </CardHeader>
         <CardContent>
           <form action={formAction}>
@@ -48,7 +46,10 @@ export function LoginForm({
                   {state.error}
                 </div>
               )}
-
+              <div className="grid gap-3">
+                <Label htmlFor="username">Username</Label>
+                <Input id="username" type="text" name="username" required />
+              </div>
               <div className="grid gap-3">
                 <Label htmlFor="email">Email</Label>
                 <Input
@@ -62,23 +63,17 @@ export function LoginForm({
               <div className="grid gap-3">
                 <div className="flex items-center">
                   <Label htmlFor="password">Password</Label>
-                  <a
-                    href="#"
-                    className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
-                  >
-                    Forgot your password?
-                  </a>
                 </div>
                 <Input id="password" type="password" name="password" required />
               </div>
               <div className="flex flex-col gap-3">
-                <LoginButton />
+                <SignUpButton />
               </div>
             </div>
             <div className="mt-4 text-center text-sm">
-              Don&apos;t have an account?{' '}
-              <Link href="/signup" className="underline underline-offset-4">
-                Sign up
+              Already have an account?{' '}
+              <Link href="/login" className="underline underline-offset-4">
+                Login
               </Link>
             </div>
           </form>
