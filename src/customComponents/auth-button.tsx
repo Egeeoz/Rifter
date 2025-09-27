@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 
 export function AuthButtons() {
   const { user, loading } = useAuth();
-  // console.log(user, loading);
+  console.log(user, loading);
 
   // Show loading state or nothing while checking auth
   if (loading) {

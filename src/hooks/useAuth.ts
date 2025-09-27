@@ -5,62 +5,70 @@ import { useEffect, useState } from 'react';
 import type { User } from '@supabase/supabase-js';
 import { UserType } from '../../types/types';
 
+// Create client outside component to avoid recreation
+const supabase = createClient();
+
 export function useAuth() {
-  console.log('useAuth hook mounted');
   const [authUser, setAuthUser] = useState<User | null>(null);
   const [customUser, setCustomUser] = useState<UserType | null>(null);
   const [loading, setLoading] = useState(true);
-  const supabase = createClient();
 
-  const fetchUserData = async (userId: string) => {
-    try {
-      const { data, error } = await supabase
+  useEffect(() => {
+    let mounted = true;
+
+    const fetchUserData = async (userId: string) => {
+      const { data } = await supabase
         .from('users')
         .select('*')
         .eq('id', userId)
         .single();
-      console.log('Supabase response:', { data, error });
-      if (error) return null;
       return data;
-    } catch {
-      return null;
-    }
-  };
+    };
 
-  useEffect(() => {
-    const getSessionAndUser = async () => {
+    // This is the key fix - wait for session to be ready
+    const initAuth = async () => {
+      // Wait a tick to ensure client is ready
+      await new Promise((resolve) => setTimeout(resolve, 0));
+
       const {
         data: { session },
       } = await supabase.auth.getSession();
+
+      if (!mounted) return;
+
       if (session?.user) {
         setAuthUser(session.user);
-        console.log(session.user);
         const userData = await fetchUserData(session.user.id);
         setCustomUser(userData);
-      } else {
-        setAuthUser(null);
-        setCustomUser(null);
       }
+
       setLoading(false);
     };
 
-    getSessionAndUser();
+    initAuth();
 
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange(async (event, session) => {
+      if (!mounted) return;
+
+      if (event === 'SIGNED_OUT' || !session?.user) {
+        setAuthUser(null);
+        setCustomUser(null);
+        setLoading(false);
+        return;
+      }
+
       if (session?.user) {
         setAuthUser(session.user);
         const userData = await fetchUserData(session.user.id);
         setCustomUser(userData);
-      } else {
-        setAuthUser(null);
-        setCustomUser(null);
+        setLoading(false);
       }
-      setLoading(false);
     });
 
     return () => {
+      mounted = false;
       subscription.unsubscribe();
     };
   }, []);
