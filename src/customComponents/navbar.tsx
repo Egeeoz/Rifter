@@ -7,6 +7,7 @@ import {
   NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
 import Dropdown from './dropdown';
+import { AuthButtons } from './auth-button';
 
 const Navbar = () => {
   return (
@@ -46,14 +47,7 @@ const Navbar = () => {
       <div className="justify-self-end pr-10 md:col-start-3">
         <NavigationMenu viewport={false} className="dark hidden md:flex">
           <NavigationMenuList className="gap-1.5">
-            <NavigationMenuItem>
-              <NavigationMenuLink href="/signup">
-                Create an account
-              </NavigationMenuLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink href="/login">Login</NavigationMenuLink>
-            </NavigationMenuItem>
+            <AuthButtons />
           </NavigationMenuList>
         </NavigationMenu>
         <Dropdown className="md:hidden flex items-center" />

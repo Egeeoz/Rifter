@@ -65,6 +65,7 @@ export async function signUp(prevstate: any, formData: FormData) {
     const profileResult = await createUser(data.user.id, email, username);
     console.log('Profile creation result:', profileResult);
     if (profileResult.success) {
+      await supabase.auth.signOut();
       revalidatePath('/', 'layout');
       redirect('/login');
     } else {
