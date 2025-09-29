@@ -9,7 +9,6 @@ import { Button } from '@/components/ui/button';
 
 export function AuthButtons() {
   const { user, loading } = useAuth();
-  console.log(user, loading);
 
   // Show loading state or nothing while checking auth
   if (loading) {
@@ -31,7 +30,7 @@ export function AuthButtons() {
       <>
         <NavigationMenuItem>
           <NavigationMenuLink>
-            Welcome, {user.email?.split('@')[0] || 'User'}
+            {user.username || user.email?.split('@')[0]}
           </NavigationMenuLink>
         </NavigationMenuItem>
         <NavigationMenuItem>
