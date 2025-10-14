@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Gantari:ital,wght@0,100..900;1,100..900&family=Yellowtail&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Gantari:ital,wght@0,100..900;1,100..900&family=Macondo&family=Yellowtail&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
@@ -112,17 +111,13 @@
   --sidebar-ring: oklch(0.552 0.016 285.938);
 }
 
-.bubble-logo {
-  font-family: 'Bubblegum Sans', cursive;
-}
-
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Gantari', sans-serif;
+    font-family: 'Bubblegum Sans', sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;

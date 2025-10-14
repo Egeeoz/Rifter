@@ -12,11 +12,8 @@ const Navbar = () => {
     <nav className="grid grid-cols-[1fr_auto_1fr] md:grid-cols-[1fr_auto_1fr] border-b-2 border-b-[--foreground] py-3 items-center min-h-20">
       <div className="md:hidden"></div>
 
-      {/* <h1 className="yellowtail-regular md:justify-self-start md:pl-10 text-4xl text-center md:col-start-1">
-        Rifter
-      </h1> */}
       <h1
-        className="bubble-logo md:justify-self-start md:pl-10 text-5xl text-center md:col-start-1 text-[#FF7518]"
+        className="md:justify-self-start md:pl-10 text-5xl text-center md:col-start-1 text-[#FF7518]"
         style={{
           WebkitTextStroke: '3px #222', // thick border
           fontFamily: '"Bubblegum Sans", cursive',
