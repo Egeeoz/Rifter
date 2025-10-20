@@ -14,7 +14,7 @@ const UserSection = () => {
       <img
         src="https://placehold.co/600x400"
         alt="profileImg"
-        className="w-1/7 aspect-square object-cover border-1 border-red-500"
+        className="w-16 aspect-square object-cover border-1 border-red-500"
       />
       <div className="w-full flex flex-col justify-between">
         <div className="flex border-1 border-red-500 divide-x-1 divide-red-500 ">
