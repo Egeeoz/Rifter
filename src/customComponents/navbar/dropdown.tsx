@@ -6,8 +6,11 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Menu } from 'lucide-react';
+import { useAuth } from '@/hooks/useAuth';
 
 const Dropdown = ({ ...props }) => {
+  const user = useAuth();
+
   return (
     <section {...props}>
       <DropdownMenu>
@@ -15,13 +18,20 @@ const Dropdown = ({ ...props }) => {
           <Menu />
         </DropdownMenuTrigger>
         <DropdownMenuContent>
-          <DropdownMenuItem>Comp Generator</DropdownMenuItem>
-          <DropdownMenuItem>How it works</DropdownMenuItem>
-          <DropdownMenuItem>About us</DropdownMenuItem>
-          <DropdownMenuItem>Pricing & Free usage</DropdownMenuItem>
+          <DropdownMenuItem>Browse</DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>Create an account</DropdownMenuItem>
-          <DropdownMenuItem>Login</DropdownMenuItem>
+          {!user ? (
+            <>
+              <DropdownMenuItem>Create an account</DropdownMenuItem>
+              <DropdownMenuItem>Login</DropdownMenuItem>
+            </>
+          ) : (
+            <>
+              <DropdownMenuItem>My comps</DropdownMenuItem>
+              <DropdownMenuItem>Profile</DropdownMenuItem>
+              <DropdownMenuItem>Logout</DropdownMenuItem>
+            </>
+          )}
         </DropdownMenuContent>
       </DropdownMenu>
     </section>
