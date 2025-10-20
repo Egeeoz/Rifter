@@ -26,11 +26,10 @@ const Navbar = () => {
 
       <NavigationMenu viewport={false} className="dark hidden md:flex">
         <NavigationMenuList className="gap-4">
-          <NavigationMenuItem className="border-b-1 border-[#FF7518]">
-            <NavigationMenuLink>Create a comp</NavigationMenuLink>
-          </NavigationMenuItem>
-          <NavigationMenuItem className="border-b-1 border-[#FF7518]">
-            <NavigationMenuLink>Browse comps</NavigationMenuLink>
+          <NavigationMenuItem>
+            <NavigationMenuLink className="bg-[var(--destructive)] hover:bg-destructive/80 px-6 py-3 text-2xl rounded-md flex items-center justify-center min-w-[140px]">
+              Browse
+            </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>

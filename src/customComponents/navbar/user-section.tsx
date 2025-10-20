@@ -14,9 +14,9 @@ const UserSection = () => {
       <img
         src="https://placehold.co/600x400"
         alt="profileImg"
-        className="w-1/6 aspect-square object-cover border-1 border-red-500"
+        className="w-1/7 aspect-square object-cover border-1 border-red-500"
       />
-      <div className="w-full">
+      <div className="w-full flex flex-col justify-between">
         <div className="flex border-1 border-red-500 divide-x-1 divide-red-500 ">
           <div className="w-2/3 text-center mt-auto">
             {user?.username || (
@@ -29,14 +29,14 @@ const UserSection = () => {
           {/* amount of comps created will be here, use static number instead for now */}
         </div>
         <div className="flex gap-0.5 mt-0.5">
-          <Button className="flex-1 rounded-xs bg-[#FF7518] text-white text-base font-medium transition-all hover:bg-orange-600 hover:text-white focus:bg-orange-600 focus:text-white focus-visible:ring-ring/50 focus-visible:ring-[3px] outline-none">
+          <Button className="flex-1 rounded-xs text-base font-medium transition-all outline-none bg-[var(--accent)] hover:bg-accent/80 text-[var(--background)]">
             My comps
           </Button>
-          <Button className="flex-1 rounded-xs bg-[#FF7518] text-white text-base font-medium transition-all hover:bg-orange-600 hover:text-white focus:bg-orange-600 focus:text-white focus-visible:ring-ring/50 focus-visible:ring-[3px] outline-none">
+          <Button className="flex-1 rounded-xs text-base font-medium transition-all outline-none">
             Profile
           </Button>
           <Button
-            className="flex-1 rounded-xs bg-[#FF7518] text-white text-base font-medium transition-all hover:bg-orange-600 hover:text-white focus:bg-orange-600 focus:text-white focus-visible:ring-ring/50 focus-visible:ring-[3px] outline-none"
+            className="flex-1 rounded-xs text-base font-medium transition-all outline-none"
             onClick={logout}
           >
             Logout
