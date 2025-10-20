@@ -7,6 +7,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Menu } from 'lucide-react';
 import { useAuth } from '@/hooks/useAuth';
+import { logout } from '@/app/actions/auth';
 
 const Dropdown = ({ ...props }) => {
   const user = useAuth();
@@ -22,14 +23,24 @@ const Dropdown = ({ ...props }) => {
           <DropdownMenuSeparator />
           {!user ? (
             <>
-              <DropdownMenuItem>Create an account</DropdownMenuItem>
-              <DropdownMenuItem>Login</DropdownMenuItem>
+              <DropdownMenuItem>
+                <a href="/signup">Create an account</a>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <a href="/login">Login</a>
+              </DropdownMenuItem>
             </>
           ) : (
             <>
-              <DropdownMenuItem>My comps</DropdownMenuItem>
-              <DropdownMenuItem>Profile</DropdownMenuItem>
-              <DropdownMenuItem>Logout</DropdownMenuItem>
+              <DropdownMenuItem>
+                <a>My comps</a>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <a>Profile</a>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <a onClick={logout}>Logout</a>
+              </DropdownMenuItem>
             </>
           )}
         </DropdownMenuContent>
