@@ -21,12 +21,20 @@ export function AuthButtons() {
   return (
     <>
       <NavigationMenuItem>
-        <NavigationMenuLink href="/signup">
+        <NavigationMenuLink
+          href="/signup"
+          className="bg-[var(--accent)] hover:bg-accent/80 text-[var(--background)]"
+        >
           Create an account
         </NavigationMenuLink>
       </NavigationMenuItem>
       <NavigationMenuItem>
-        <NavigationMenuLink href="/login">Login</NavigationMenuLink>
+        <NavigationMenuLink
+          href="/login"
+          className="bg-[var(--accent)] hover:bg-accent/80 text-[var(--background)]"
+        >
+          Login
+        </NavigationMenuLink>
       </NavigationMenuItem>
     </>
   );
