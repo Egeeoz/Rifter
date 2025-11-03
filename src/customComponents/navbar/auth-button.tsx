@@ -23,17 +23,25 @@ export function AuthButtons() {
       <NavigationMenuItem>
         <NavigationMenuLink
           href="/signup"
-          className="bg-[var(--accent)] hover:bg-accent/80 text-[var(--background)]"
+          className="animated-outline font-medium "
         >
-          Create an account
+          <span className="animated-outline__label">Create an account</span>
+          <span className="animated-outline__side bottom" />
+          <span className="animated-outline__side left" />
+          <span className="animated-outline__side top" />
+          <span className="animated-outline__side right" />
         </NavigationMenuLink>
       </NavigationMenuItem>
       <NavigationMenuItem>
         <NavigationMenuLink
           href="/login"
-          className="bg-[var(--accent)] hover:bg-accent/80 text-[var(--background)]"
+          className="animated-outline font-medium"
         >
-          Login
+          <span className="animated-outline__label">Login</span>
+          <span className="animated-outline__side bottom" />
+          <span className="animated-outline__side left" />
+          <span className="animated-outline__side top" />
+          <span className="animated-outline__side right" />
         </NavigationMenuLink>
       </NavigationMenuItem>
     </>

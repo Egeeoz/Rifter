@@ -27,8 +27,12 @@ const Navbar = () => {
       <NavigationMenu viewport={false} className="dark hidden md:flex">
         <NavigationMenuList className="gap-4">
           <NavigationMenuItem>
-            <NavigationMenuLink className="bg-[var(--destructive)] hover:bg-destructive/80 px-6 py-3 text-2xl rounded-md flex items-center justify-center min-w-[140px]">
-              Browse
+            <NavigationMenuLink className=" animated-outline font-medium text-2xl">
+              <span className="animated-outline__label">Browse</span>
+              <span className="animated-outline__side bottom" />
+              <span className="animated-outline__side left" />
+              <span className="animated-outline__side top" />
+              <span className="animated-outline__side right" />
             </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>
@@ -36,7 +40,7 @@ const Navbar = () => {
 
       <div className="justify-self-end md:pr-10 md:col-start-3 min-w-0 flex items-center">
         <NavigationMenu viewport={false} className="dark hidden md:flex">
-          <NavigationMenuList className="gap-1.5">
+          <NavigationMenuList className="gap-5">
             <AuthButtons />
           </NavigationMenuList>
         </NavigationMenu>
