@@ -14,10 +14,10 @@ import Link from 'next/link';
 import { useFormStatus } from 'react-dom';
 import { useActionState } from 'react';
 import { signUp } from '@/app/actions/auth';
+import { fetchData } from '@/hooks/useData';
 
 function SignUpButton() {
   const { pending } = useFormStatus();
-
   return (
     <Button type="submit" className="w-full" disabled={pending}>
       {pending ? 'Creating account...' : 'Create account'}
@@ -30,6 +30,8 @@ export function SignUpForm({
   ...props
 }: React.ComponentProps<'div'>) {
   const [state, formAction] = useActionState(signUp, null);
+  const { data } = fetchData();
+  console.log(data);
 
   return (
     <div className={cn('flex flex-col gap-6', className)} {...props}>
