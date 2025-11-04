@@ -24,15 +24,19 @@ const Navbar = () => {
         Rifter
       </h1>
 
-      <NavigationMenu viewport={false} className="dark hidden md:flex">
+      <NavigationMenu
+        viewport={false}
+        className="hidden md:flex backdrop-blur-3xl"
+      >
         <NavigationMenuList className="gap-4">
           <NavigationMenuItem>
             <NavigationMenuLink className=" animated-outline font-medium text-2xl">
-              <span className="animated-outline__label">Browse</span>
+              Browse
+              {/* <span className="animated-outline__label">Browse</span>
               <span className="animated-outline__side bottom" />
               <span className="animated-outline__side left" />
               <span className="animated-outline__side top" />
-              <span className="animated-outline__side right" />
+              <span className="animated-outline__side right" /> */}
             </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>
