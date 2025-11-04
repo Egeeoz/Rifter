@@ -25,11 +25,12 @@ export function AuthButtons() {
           href="/signup"
           className="animated-outline font-medium "
         >
-          <span className="animated-outline__label">Create an account</span>
+          Create an account
+          {/* <span className="animated-outline__label">Create an account</span>
           <span className="animated-outline__side bottom" />
           <span className="animated-outline__side left" />
           <span className="animated-outline__side top" />
-          <span className="animated-outline__side right" />
+          <span className="animated-outline__side right" /> */}
         </NavigationMenuLink>
       </NavigationMenuItem>
       <NavigationMenuItem>
@@ -37,11 +38,12 @@ export function AuthButtons() {
           href="/login"
           className="animated-outline font-medium"
         >
-          <span className="animated-outline__label">Login</span>
+          Login
+          {/* <span className="animated-outline__label">Login</span>
           <span className="animated-outline__side bottom" />
           <span className="animated-outline__side left" />
           <span className="animated-outline__side top" />
-          <span className="animated-outline__side right" />
+          <span className="animated-outline__side right" /> */}
         </NavigationMenuLink>
       </NavigationMenuItem>
     </>

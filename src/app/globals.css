@@ -56,13 +56,12 @@
 /* Animation */
 
 /* Animated outline that draws left -> top -> right (bottom is visible initially) */
-.animated-outline {
+/* .animated-outline {
   position: relative;
   display: inline-block;
   padding: 0.25rem 0.5rem;
   border-radius: 0.375rem;
   color: inherit;
-  /* ensure label sits above sides */
   -webkit-tap-highlight-color: transparent;
 }
 .animated-outline__label {
@@ -78,27 +77,27 @@
   transition: transform 200ms cubic-bezier(0.2, 0.9, 0.2, 1);
   pointer-events: none;
   border-radius: 0.1875rem;
-}
+} */
 
 /* BASE (not hovered) — set delays so retraction happens right -> top -> left */
-.animated-outline__side.bottom {
+/* .animated-outline__side.bottom {
   left: 0;
   right: 0;
   bottom: 0;
   height: 2px;
   transform-origin: left;
   transform: scaleX(1);
-  transition-delay: 0ms; /* bottom stays visible, retract timing if you change it */
-}
+  transition-delay: 0ms;
+} */
 
-.animated-outline__side.left {
+/* .animated-outline__side.left {
   left: 0;
   top: 0;
   bottom: 0;
   width: 2px;
   transform-origin: bottom;
   transform: scaleY(0);
-  transition-delay: 240ms; /* retract last */
+  transition-delay: 240ms;
 }
 
 .animated-outline__side.top {
@@ -108,7 +107,7 @@
   height: 2px;
   transform-origin: left;
   transform: scaleX(0);
-  transition-delay: 120ms; /* retract second */
+  transition-delay: 120ms;
 }
 
 .animated-outline__side.right {
@@ -118,11 +117,11 @@
   width: 2px;
   transform-origin: top;
   transform: scaleY(0);
-  transition-delay: 0ms; /* retract first */
-}
+  transition-delay: 0ms;
+} */
 
 /* HOVER (forward draw) — override delays so draw sequence is left -> top -> right */
-.animated-outline:hover .animated-outline__side.left,
+/* .animated-outline:hover .animated-outline__side.left,
 .animated-outline[data-active='true'] .animated-outline__side.left {
   transition-delay: 0ms;
   transform: scaleY(1);
@@ -141,4 +140,4 @@
 .animated-outline .animated-outline__side {
   transition-duration: 200ms;
   transition-timing-function: cubic-bezier(0.2, 0.9, 0.2, 1);
-}
+} */
