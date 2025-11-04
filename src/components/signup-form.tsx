@@ -18,6 +18,7 @@ import { useActionState } from 'react';
 
 import { signUp } from '@/app/actions/auth';
 import { fetchData } from '@/hooks/useData';
+import { ChampionsResponse } from '../../types/types';
 
 function SignUpButton() {
   const { pending } = useFormStatus();
@@ -41,6 +42,7 @@ export function SignUpForm({
     getChampionLoadingUrl,
     getChampionSplashUrl,
   } = fetchData();
+  console.log(data);
 
   return (
     <div className={cn('flex flex-col gap-6', className)} {...props}>
@@ -74,7 +76,6 @@ export function SignUpForm({
         </div>
       )} */}
 
-      {/* Sign Up Card */}
       <Card>
         <CardHeader>
           <CardTitle>Create your own account</CardTitle>
@@ -96,7 +97,13 @@ export function SignUpForm({
               </div>
 
               <div className="grid gap-1.5">
-                <Combobox />
+                {status === 'loading' && <p>Loading champions...</p>}
+                {status === 'error' && <p>Error loading champions</p>}
+                <Combobox
+                  championData={
+                    status === 'success' ? data ?? undefined : undefined
+                  }
+                />
               </div>
 
               <div className="grid gap-1.5">
