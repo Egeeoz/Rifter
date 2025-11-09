@@ -10,6 +10,7 @@ export interface UserType {
   created_at: string;
 }
 
+// Champion types
 export interface ChampionsResponse {
   type: string;
   format: string;

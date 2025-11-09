@@ -1,6 +1,4 @@
 'use client';
-
-import * as React from 'react';
 import { Check, ChevronsUpDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -18,12 +16,17 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover';
 
+import { useState, SetStateAction, Dispatch } from 'react';
 import { ChampionsResponse, Champion } from '../../types/types';
 
-export function Combobox(props?: { championData?: ChampionsResponse }) {
-  const championData = props?.championData;
-  const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState('');
+type ComboboxProps = {
+  championData?: ChampionsResponse;
+  value: string;
+  setValue: Dispatch<SetStateAction<string>>;
+};
+
+export function Combobox({ championData, value, setValue }: ComboboxProps) {
+  const [open, setOpen] = useState(false);
 
   // Use only the passed-in data; fallback to empty array
   const championList: Champion[] = Object.values(championData?.data ?? {});
@@ -40,8 +43,6 @@ export function Combobox(props?: { championData?: ChampionsResponse }) {
           <span className="truncate">
             {value
               ? championList.find((c) => c.id === value)?.name ?? value
-              : championList.length > 0
-              ? championList[0].name
               : 'Select champion...'}
           </span>
           <ChevronsUpDown className="opacity-50" />
@@ -54,46 +55,25 @@ export function Combobox(props?: { championData?: ChampionsResponse }) {
           <CommandList>
             <CommandEmpty>No Champions found.</CommandEmpty>
             <CommandGroup>
-              {championList.length > 0
-                ? championList.map((champ) => (
-                    <CommandItem
-                      key={champ.id}
-                      value={champ.id}
-                      onSelect={(currentValue) => {
-                        setValue(currentValue === value ? '' : currentValue);
-                        setOpen(false);
-                      }}
-                    >
-                      {champ.name}
-                      <Check
-                        className={cn(
-                          'ml-auto',
-                          value === champ.id ? 'opacity-100' : 'opacity-0'
-                        )}
-                      />
-                    </CommandItem>
-                  ))
-                : [
-                    { value: 'next.js', label: 'Next.js' },
-                    { value: 'sveltekit', label: 'SvelteKit' },
-                  ].map((fw) => (
-                    <CommandItem
-                      key={fw.value}
-                      value={fw.value}
-                      onSelect={(currentValue) => {
-                        setValue(currentValue === value ? '' : currentValue);
-                        setOpen(false);
-                      }}
-                    >
-                      {fw.label}
-                      <Check
-                        className={cn(
-                          'ml-auto',
-                          value === fw.value ? 'opacity-100' : 'opacity-0'
-                        )}
-                      />
-                    </CommandItem>
-                  ))}
+              {championList.length > 0 &&
+                championList.map((champ) => (
+                  <CommandItem
+                    key={champ.id}
+                    value={champ.id}
+                    onSelect={(currentValue) => {
+                      setValue(currentValue === value ? '' : currentValue);
+                      setOpen(false);
+                    }}
+                  >
+                    {champ.name}
+                    <Check
+                      className={cn(
+                        'ml-auto',
+                        value === champ.id ? 'opacity-100' : 'opacity-0'
+                      )}
+                    />
+                  </CommandItem>
+                ))}
             </CommandGroup>
           </CommandList>
         </Command>

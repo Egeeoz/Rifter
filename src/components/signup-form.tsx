@@ -12,13 +12,13 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Link from 'next/link';
 import { Combobox } from '@/customComponents/combo-box';
+import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
 
 import { useFormStatus } from 'react-dom';
-import { useActionState } from 'react';
+import { useActionState, useState } from 'react';
 
 import { signUp } from '@/app/actions/auth';
 import { fetchData } from '@/hooks/useData';
-import { ChampionsResponse } from '../../types/types';
 
 function SignUpButton() {
   const { pending } = useFormStatus();
@@ -34,6 +34,7 @@ export function SignUpForm({
   ...props
 }: React.ComponentProps<'div'>) {
   const [state, formAction] = useActionState(signUp, null);
+  const [value, setValue] = useState('');
   const {
     data,
     status,
@@ -46,36 +47,6 @@ export function SignUpForm({
 
   return (
     <div className={cn('flex flex-col gap-6', className)} {...props}>
-      {/* Champion List - only render when data is loaded
-      {status === 'loading' && (
-        <div className="text-center py-4">Loading champions...</div>
-      )}
-
-      {status === 'error' && (
-        <div className="text-center py-4 text-red-500">
-          Error loading champions
-        </div>
-      )}
-
-      {status === 'success' && data && (
-        <div className="grid grid-cols-4 gap-4">
-          {Object.values(data.data).map((champion: any) => (
-            <div key={champion.id} className="border p-4 rounded">
-              {/* Use img tag, not image */}
-      {/* <img
-                src={getChampionImageUrl(champion.id)}
-                alt={champion.name}
-                width={48}
-                height={48}
-                className="w-full h-auto"
-              />
-              <h3>{champion.name}</h3>
-              <p className="text-sm text-gray-600">{champion.title}</p>
-            </div>
-          ))}
-        </div>
-      )} */}
-
       <Card>
         <CardHeader>
           <CardTitle>Create your own account</CardTitle>
@@ -85,6 +56,17 @@ export function SignUpForm({
         </CardHeader>
         <CardContent>
           <form action={formAction}>
+            <Avatar className="m-auto w-20 h-20 border-1 border-black">
+              <AvatarImage
+                src={
+                  value
+                    ? getChampionImageUrl(value)
+                    : 'https://placehold.co/600x400?text=?'
+                }
+                className="w-full h-full object-cover object-center transform scale-125"
+              />
+              <AvatarFallback>?</AvatarFallback>
+            </Avatar>
             <div className="flex flex-col gap-6">
               {state?.error && (
                 <div className="bg-destructive/10 border border-destructive/20 text-destructive text-sm p-3 rounded-md">
@@ -97,12 +79,15 @@ export function SignUpForm({
               </div>
 
               <div className="grid gap-1.5">
+                <Label htmlFor="champion">Favorite champion</Label>
                 {status === 'loading' && <p>Loading champions...</p>}
                 {status === 'error' && <p>Error loading champions</p>}
                 <Combobox
                   championData={
                     status === 'success' ? data ?? undefined : undefined
                   }
+                  value={value}
+                  setValue={setValue}
                 />
               </div>
 
@@ -112,7 +97,7 @@ export function SignUpForm({
                   id="email"
                   type="email"
                   name="email"
-                  placeholder="m@example.com"
+                  placeholder="drMUNDO@ISBEST.com"
                   required
                 />
               </div>
