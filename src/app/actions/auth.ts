@@ -11,9 +11,10 @@ export async function signUp(prevstate: any, formData: FormData) {
   const email = formData.get('email') as string;
   const password = formData.get('password') as string;
   const username = formData.get('username') as string;
+  const favoriteChampion = formData.get('champion') as string;
 
-  if (!email || !password || !username) {
-    return { error: 'Email and password are required' };
+  if (!email || !password || !username || !favoriteChampion) {
+    return { error: 'Missing form data' };
   }
 
   if (password.length < 6) {
@@ -62,7 +63,12 @@ export async function signUp(prevstate: any, formData: FormData) {
 
   if (data?.user) {
     console.log('User created in auth:', data.user.id);
-    const profileResult = await createUser(data.user.id, email, username);
+    const profileResult = await createUser(
+      data.user.id,
+      email,
+      username,
+      favoriteChampion
+    );
     console.log('Profile creation result:', profileResult);
     if (profileResult.success) {
       await supabase.auth.signOut();

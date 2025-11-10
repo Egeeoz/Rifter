@@ -56,7 +56,7 @@ export function SignUpForm({
         </CardHeader>
         <CardContent>
           <form action={formAction}>
-            <Avatar className="m-auto w-20 h-20 border-1 border-black">
+            <Avatar className="m-auto w-20 h-20 outline-[3.5px] outline-[var(--border)]">
               <AvatarImage
                 src={
                   value
@@ -80,6 +80,8 @@ export function SignUpForm({
 
               <div className="grid gap-1.5">
                 <Label htmlFor="champion">Favorite champion</Label>
+                <Input type="hidden" name="champion" value={value} />
+
                 {status === 'loading' && <p>Loading champions...</p>}
                 {status === 'error' && <p>Error loading champions</p>}
                 <Combobox
