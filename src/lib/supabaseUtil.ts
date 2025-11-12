@@ -4,7 +4,8 @@ import { createAdminClient } from '@/lib/supabase/admin';
 export async function createUser(
   userId: string,
   email: string,
-  username: string
+  username: string,
+  favoriteChampion: string
 ) {
   const supabase = await createAdminClient();
 
@@ -15,6 +16,7 @@ export async function createUser(
         id: userId,
         username: username,
         email: email,
+        favorite_champ: favoriteChampion,
         created_at: new Date().toISOString(),
       })
       .select()

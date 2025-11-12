@@ -25,6 +25,7 @@
   --orange: #e36414;
   --violet-blue: #1847c9;
   --royal-blue: #0a1f6b;
+  --red: #d70040;
 
   /* Essentials only */
   --background: var(--white);
@@ -32,6 +33,9 @@
   --primary: var(--violet-blue);
   --accent: var(--orange);
   --border: var(--violet-blue);
+  --hover: var(--royal-blue);
+  --destructive: var(--red);
+  --ring: var(--violet-blue);
 }
 
 @layer base {
