@@ -18,7 +18,7 @@ import { useFormStatus } from 'react-dom';
 import { useActionState, useState } from 'react';
 
 import { signUp } from '@/app/actions/auth';
-import { fetchData } from '@/hooks/useData';
+import { useData } from '@/hooks/useData';
 
 function SignUpButton() {
   const { pending } = useFormStatus();
@@ -42,8 +42,7 @@ export function SignUpForm({
     getChampionImageUrl,
     getChampionLoadingUrl,
     getChampionSplashUrl,
-  } = fetchData();
-  console.log(data);
+  } = useData();
 
   return (
     <div className={cn('flex flex-col gap-6', className)} {...props}>

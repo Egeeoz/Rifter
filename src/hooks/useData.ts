@@ -1,7 +1,9 @@
 'use client';
 import { useState, useEffect } from 'react';
 
-export function fetchData() {
+const CACHE_DURATION = 1000 * 60 * 60 * 24;
+
+export function useData() {
   const [status, setStatus] = useState<'loading' | 'error' | 'success'>(
     'loading'
   );
@@ -11,23 +13,61 @@ export function fetchData() {
   useEffect(() => {
     const usefetchChampions = async () => {
       try {
-        const versionResponse = await fetch(
-          'https://ddragon.leagueoflegends.com/api/versions.json'
-        );
-        const versions = await versionResponse.json();
-        const latestVersion = versions[0];
-        setVersion(latestVersion);
+        let latestVersion = version;
+        let shouldRefetchData = false;
 
-        const response = await fetch(
-          `https://ddragon.leagueoflegends.com/cdn/${latestVersion}/data/en_US/champion.json`
-        );
-        const championData = await response.json();
-        setData(championData);
-        setStatus('success');
+        // Check if we need to fetch version
+        const cachedVersion = localStorage.getItem('version');
+        const cachedVersionTime = localStorage.getItem('versionTimestamp');
+        const now = Date.now();
+
+        if (
+          !cachedVersion ||
+          !cachedVersionTime ||
+          now - parseInt(cachedVersionTime) > CACHE_DURATION
+        ) {
+          // Fetch latest version
+          const versionResponse = await fetch(
+            'https://ddragon.leagueoflegends.com/api/versions.json'
+          );
+          const versions = await versionResponse.json();
+          latestVersion = versions[0];
+
+          // If version changed, mark data for refetch
+          if (cachedVersion && cachedVersion !== latestVersion) {
+            shouldRefetchData = true;
+            console.log(`Version updated: ${cachedVersion} → ${latestVersion}`);
+          }
+
+          setVersion(latestVersion);
+          localStorage.setItem('version', latestVersion);
+          localStorage.setItem('versionTimestamp', now.toString());
+          console.log('Version check RAN');
+        } else {
+          latestVersion = cachedVersion;
+          setVersion(latestVersion);
+          console.log('Using cached version:', latestVersion);
+        }
+
+        // Fetch champion data if needed
+        const cachedData = localStorage.getItem('championData');
+        if (!cachedData || shouldRefetchData) {
+          const response = await fetch(
+            `https://ddragon.leagueoflegends.com/cdn/${latestVersion}/data/en_US/champion.json`
+          );
+          const championData = await response.json();
+          setData(championData);
+          localStorage.setItem('championData', JSON.stringify(championData));
+          setStatus('success');
+          console.log('Champion data fetch RAN');
+        } else {
+          setData(JSON.parse(cachedData));
+          setStatus('success');
+          console.log('Using cached champion data');
+        }
       } catch (error) {
         setStatus('error');
         console.log(error);
-        return;
       }
     };
 
