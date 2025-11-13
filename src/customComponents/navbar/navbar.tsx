@@ -6,6 +6,7 @@ import {
 } from '@/components/ui/navigation-menu';
 import Dropdown from './dropdown';
 import { AuthButtons } from './auth-button';
+import { Button } from '@/components/ui/button';
 
 const Navbar = () => {
   return (
@@ -30,13 +31,10 @@ const Navbar = () => {
       >
         <NavigationMenuList className="gap-4">
           <NavigationMenuItem>
-            <NavigationMenuLink className=" animated-outline font-medium text-2xl">
-              Browse
-              {/* <span className="animated-outline__label">Browse</span>
-              <span className="animated-outline__side bottom" />
-              <span className="animated-outline__side left" />
-              <span className="animated-outline__side top" />
-              <span className="animated-outline__side right" /> */}
+            <NavigationMenuLink className="p-0">
+              <Button className="font-medium text-2xl py-6 px-7 text-[var(--background)]">
+                Browse
+              </Button>
             </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>
@@ -44,7 +42,7 @@ const Navbar = () => {
 
       <div className="justify-self-end md:pr-10 md:col-start-3 min-w-0 flex items-center">
         <NavigationMenu viewport={false} className="dark hidden md:flex">
-          <NavigationMenuList className="gap-5">
+          <NavigationMenuList>
             <AuthButtons />
           </NavigationMenuList>
         </NavigationMenu>

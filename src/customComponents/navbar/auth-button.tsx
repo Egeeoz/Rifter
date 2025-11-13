@@ -4,6 +4,7 @@ import {
   NavigationMenuLink,
 } from '@/components/ui/navigation-menu';
 import UserSection from './user-section';
+import { Button } from '@/components/ui/button';
 
 export function AuthButtons() {
   const { user } = useAuth();
@@ -25,12 +26,9 @@ export function AuthButtons() {
           href="/signup"
           className="animated-outline font-medium "
         >
-          Create an account
-          {/* <span className="animated-outline__label">Create an account</span>
-          <span className="animated-outline__side bottom" />
-          <span className="animated-outline__side left" />
-          <span className="animated-outline__side top" />
-          <span className="animated-outline__side right" /> */}
+          <Button className="text-[var(--background)]">
+            Create an account
+          </Button>
         </NavigationMenuLink>
       </NavigationMenuItem>
       <NavigationMenuItem>
@@ -38,12 +36,7 @@ export function AuthButtons() {
           href="/login"
           className="animated-outline font-medium"
         >
-          Login
-          {/* <span className="animated-outline__label">Login</span>
-          <span className="animated-outline__side bottom" />
-          <span className="animated-outline__side left" />
-          <span className="animated-outline__side top" />
-          <span className="animated-outline__side right" /> */}
+          <Button className="text-[var(--background)]">Login</Button>
         </NavigationMenuLink>
       </NavigationMenuItem>
     </>

@@ -19,7 +19,11 @@ function LoginButton() {
   const { pending } = useFormStatus();
 
   return (
-    <Button type="submit" className="w-full" disabled={pending}>
+    <Button
+      type="submit"
+      className="w-full text-[var(--background)]"
+      disabled={pending}
+    >
       {pending ? 'Logging in...' : 'Login'}
     </Button>
   );
