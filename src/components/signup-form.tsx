@@ -23,7 +23,11 @@ import { useData } from '@/hooks/useData';
 function SignUpButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" className="w-full" disabled={pending}>
+    <Button
+      type="submit"
+      className="w-full text-[var(--background)]"
+      disabled={pending}
+    >
       {pending ? 'Creating account...' : 'Create account'}
     </Button>
   );
