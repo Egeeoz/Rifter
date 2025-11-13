@@ -12,7 +12,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Link from 'next/link';
 import { Combobox } from '@/customComponents/combo-box';
-import { Avatar, AvatarImage, AvatarFallback } from './ui/avatar';
+import { Avatar, AvatarImage } from './ui/avatar';
+import { TextShimmer } from '../../components/motion-primitives/text-shimmer';
 
 import { useFormStatus } from 'react-dom';
 import { useActionState, useState } from 'react';
@@ -68,7 +69,6 @@ export function SignUpForm({
                 }
                 className="w-full h-full object-cover object-center transform scale-125"
               />
-              <AvatarFallback>?</AvatarFallback>
             </Avatar>
             <div className="flex flex-col gap-6">
               {state?.error && (
@@ -85,11 +85,17 @@ export function SignUpForm({
                 <Label htmlFor="champion">Favorite champion</Label>
                 <Input type="hidden" name="champion" value={value} />
 
-                {status === 'loading' && <p>Loading champions...</p>}
-                {status === 'error' && <p>Error loading champions</p>}
                 <Combobox
                   championData={
-                    status === 'success' ? data ?? undefined : undefined
+                    status === 'loading' ? (
+                      <TextShimmer className="font-mono text-sm" duration={1}>
+                        Loading champions...
+                      </TextShimmer>
+                    ) : status === 'error' ? (
+                      'Error loading champions'
+                    ) : (
+                      data ?? undefined
+                    )
                   }
                   value={value}
                   setValue={setValue}
