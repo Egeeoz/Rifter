@@ -6,11 +6,10 @@ import {
 } from '@/components/ui/navigation-menu';
 import Dropdown from './dropdown';
 import { AuthButtons } from './auth-button';
-import { Button } from '@/components/ui/button';
 
 const Navbar = () => {
   return (
-    <nav className="grid grid-cols-[1fr_auto_1fr] md:grid-cols-[1fr_auto_1fr] border-b-2 border-b-[--foreground] py-3 items-center min-h-20">
+    <nav className="grid grid-cols-[1fr_auto_1fr] md:grid-cols-[1fr_auto_1fr] py-3 items-center min-h-15 top-0 sticky w-full backdrop-blur-md border-b-1 border-[#28282B]">
       <div className="md:hidden"></div>
 
       <h1
@@ -31,18 +30,21 @@ const Navbar = () => {
       >
         <NavigationMenuList className="gap-4">
           <NavigationMenuItem>
-            <NavigationMenuLink className="p-0">
-              <Button className="font-medium text-2xl py-6 px-7 text-[var(--background)]">
-                Browse
-              </Button>
+            <NavigationMenuLink className="font-light text-lg bg-transparent text-foreground/80 hover:text-foreground/100 hover:bg-inherit/80">
+              Browse
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuLink className="font-light text-lg bg-transparent text-foreground/80 hover:text-foreground/100 hover:bg-inherit/80">
+              Get Started
             </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
 
       <div className="justify-self-end md:pr-10 md:col-start-3 min-w-0 flex items-center">
-        <NavigationMenu viewport={false} className="dark hidden md:flex">
-          <NavigationMenuList>
+        <NavigationMenu viewport={false} className="hidden md:flex">
+          <NavigationMenuList className="gap-3">
             <AuthButtons />
           </NavigationMenuList>
         </NavigationMenu>
