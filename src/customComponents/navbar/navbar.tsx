@@ -30,12 +30,12 @@ const Navbar = () => {
       >
         <NavigationMenuList className="gap-4">
           <NavigationMenuItem>
-            <NavigationMenuLink className="font-medium text-lg bg-transparent text-foreground/80 hover:text-foreground/100 hover:bg-inherit/80">
+            <NavigationMenuLink className="font-light text-lg bg-transparent text-foreground/80 hover:text-foreground/100 hover:bg-inherit/80">
               Browse
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuLink className="font-medium text-lg bg-transparent text-foreground/80 hover:text-foreground/100 hover:bg-inherit/80">
+            <NavigationMenuLink className="font-light text-lg bg-transparent text-foreground/80 hover:text-foreground/100 hover:bg-inherit/80">
               Get Started
             </NavigationMenuLink>
           </NavigationMenuItem>
