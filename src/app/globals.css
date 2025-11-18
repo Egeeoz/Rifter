@@ -20,7 +20,8 @@
   --radius: 0.625rem;
 
   /* Palette */
-  --white: #dee2e6;
+  --white: #ffffff;
+  --off-white: #dee2e6;
   --black: #000000;
   --orange: #e36414;
   --violet-blue: #1847c9;
@@ -28,11 +29,11 @@
   --red: #d70040;
 
   /* Essentials only */
-  --background: var(--white);
-  --foreground: var(--black);
+  --background: var(--black);
+  --foreground: var(--white);
   --primary: var(--violet-blue);
   --accent: var(--orange);
-  --border: var(--violet-blue);
+  --border: var(--off-white);
   --hover: var(--royal-blue);
   --destructive: var(--red);
   --ring: var(--violet-blue);
