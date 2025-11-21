@@ -1,3 +1,8 @@
+import Hero from '@/customComponents/landingPage/hero';
 export default function Home() {
-  return <div>Hello</div>;
+  return (
+    <>
+      <Hero />
+    </>
+  );
 }
