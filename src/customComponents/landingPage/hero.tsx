@@ -1,28 +1,39 @@
 import { Button } from '@/components/ui/button';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, BadgeDollarSign } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <div className="flex">
-      <section>
+    <div className="flex pt-10">
+      <section className="flex flex-col gap-4 w-[85%] m-auto">
         <span className="border-1 rounded-xl px-4 py-1 text-xs flex w-fit items-center gap-1.5">
           <Sparkles size={15} color="#FF7518" />
           Join in on building a new league of legends community
         </span>
-        <h1>Create, customize and share your own compositions</h1>
-        <p>
+        <h1 className="text-6xl font-bold">
+          Create, customize <br /> and share your own <br />
+          compositions
+        </h1>
+        <p className="w-1/3 text-foreground/80 text-lg">
           A creative space to build your next clash composition or ranked flex
           comp, share your ideas with others, discuss have fun
         </p>
-        <section>
-          <Button>Create your comp</Button>
-          <Button>Learn more</Button>
+        <section className="flex gap-4">
+          <Button className="rounded-sm bg-accent hover:bg-accent/80 text-background text-lg py-5">
+            Create your comp
+          </Button>
+          <Button className="rounded-sm text-lg bg-inherit border-1 border-border/60 py-5 hover:bg-background hover:text-foreground/80 ">
+            Learn more
+          </Button>
         </section>
         <section>
-          <span>Completely Free</span>
+          <span className="flex items-center gap-1.5">
+            <BadgeDollarSign size={18} color="#1847c9" />
+            Completely Free
+          </span>
           {/* Add current users & total comps here in future when data exists (hopefully) */}
         </section>
       </section>
+      {/*  */}
       <section>
         <h2>Comp of the month</h2>
         {/* Insert images of 5 dravens in comp format */}
