@@ -20,15 +20,18 @@ const Comp = ({ selectedChampions }: CompProps) => {
       : exampleData.champions;
 
   return (
-    <section className="flex">
+    <section className="flex gap-4 border-2 py-2 px-4 rounded-md">
       {displayChampions?.map((champion, idx) => (
         <div key={idx}>
           <span>{exampleData.roles[idx]}</span>
-          <img
-            key={idx}
-            src={getChampionLoadingUrl(champion)}
-            alt={`${champion} Loading screen img`}
-          />
+          <div className="border-2 overflow-hidden rounded-sm">
+            <img
+              key={idx}
+              src={getChampionLoadingUrl(champion)}
+              alt={`${champion} Loading screen img`}
+              className="w-full h-full object-cover scale-120"
+            />
+          </div>
         </div>
       ))}
     </section>
