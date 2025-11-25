@@ -27,6 +27,7 @@
   --violet-blue: #1847c9;
   --royal-blue: #0a1f6b;
   --red: #d70040;
+  --dark-blue: #001219;
 
   /* Essentials only */
   --background: var(--black);
@@ -37,6 +38,7 @@
   --hover: var(--royal-blue);
   --destructive: var(--red);
   --ring: var(--violet-blue);
+  --card: var(--dark-blue);
 }
 
 @layer base {

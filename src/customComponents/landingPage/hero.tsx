@@ -38,7 +38,7 @@ const Hero = () => {
       <section className="w-2/4">
         <h2>Comp of the month</h2>
         <section>
-          <Comp />
+          <Comp className="bg-card" />
         </section>
         {/* Insert images of 5 dravens in comp format */}
       </section>

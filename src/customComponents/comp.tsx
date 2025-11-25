@@ -1,12 +1,12 @@
 'use client';
-
+import { cn } from '@/lib/utils';
 import { useData } from '@/hooks/useData';
 
-interface CompProps {
+interface CompProps extends React.ComponentProps<'section'> {
   selectedChampions?: string[];
 }
 
-const Comp = ({ selectedChampions }: CompProps) => {
+const Comp = ({ selectedChampions, className, ...props }: CompProps) => {
   const exampleData = {
     champions: ['Draven', 'Draven', 'Draven', 'Draven', 'Draven'],
     roles: ['Top', 'Jungle', 'Mid', 'Adc', 'Support'],
@@ -20,7 +20,10 @@ const Comp = ({ selectedChampions }: CompProps) => {
       : exampleData.champions;
 
   return (
-    <section className="flex gap-4 border-2 py-2 px-4 rounded-md">
+    <section
+      className={cn('flex gap-4 border-2 py-2 px-4 rounded-md', className)}
+      {...props}
+    >
       {displayChampions?.map((champion, idx) => (
         <div key={idx}>
           <span>{exampleData.roles[idx]}</span>
