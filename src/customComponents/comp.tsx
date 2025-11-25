@@ -26,7 +26,9 @@ const Comp = ({ selectedChampions, className, ...props }: CompProps) => {
     >
       {displayChampions?.map((champion, idx) => (
         <div key={idx}>
-          <span>{exampleData.roles[idx]}</span>
+          <span className="font-semibold uppercase">
+            {exampleData.roles[idx]}
+          </span>
           <div className="border-2 overflow-hidden rounded-sm">
             <img
               key={idx}

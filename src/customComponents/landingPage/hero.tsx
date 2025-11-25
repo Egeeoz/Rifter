@@ -36,7 +36,9 @@ const Hero = () => {
       </section>
       {/*  */}
       <section className="w-2/4">
-        <h2>Comp of the month</h2>
+        <h2 className="text-2xl font-semibold italic pb-1">
+          Comp of the month
+        </h2>
         <section>
           <Comp className="bg-card" />
         </section>
