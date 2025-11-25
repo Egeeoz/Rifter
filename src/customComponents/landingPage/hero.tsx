@@ -14,7 +14,7 @@ const Hero = () => {
           Create, customize <br /> and share your own <br />
           compositions
         </h1>
-        <p className="w-2/3 text-foreground/80 text-lg">
+        <p className="w-3/4 text-foreground/80 text-lg">
           A creative space to build your next clash composition or ranked flex
           comp, share your ideas with others, discuss have fun
         </p>
@@ -36,13 +36,10 @@ const Hero = () => {
       </section>
       {/*  */}
       <section className="w-2/4">
-        <h2 className="text-2xl font-semibold italic pb-1">
-          Comp of the month
-        </h2>
+        <h2 className="text-2xl font-semibold pb-1">Comp of the month</h2>
         <section>
-          <Comp className="bg-card" />
+          <Comp className="bg-card" compName="BEST TEAM EVER" />
         </section>
-        {/* Insert images of 5 dravens in comp format */}
       </section>
     </div>
   );
