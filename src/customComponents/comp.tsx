@@ -5,12 +5,14 @@ import { useData } from '@/hooks/useData';
 interface CompProps extends React.ComponentProps<'section'> {
   selectedChampions?: string[];
   compName?: string;
+  compDescription?: string;
 }
 
 const Comp = ({
   selectedChampions,
   className,
   compName,
+  compDescription,
   ...props
 }: CompProps) => {
   const exampleData = {
@@ -27,7 +29,10 @@ const Comp = ({
 
   return (
     <section
-      className={cn('border-2 py-4 px-4 rounded-md', className)}
+      className={cn(
+        'border-2 border-foreground/20 py-2 px-4 rounded-md flex flex-col gap-2',
+        className
+      )}
       {...props}
     >
       <h3 className="text-xl text-accent italic font-semibold underline">
@@ -36,7 +41,7 @@ const Comp = ({
       <section className="flex gap-4">
         {displayChampions?.map((champion, idx) => (
           <div key={idx}>
-            <span className="font-semibold uppercase">
+            <span className="font-semibold capitalize">
               {exampleData.roles[idx]}
             </span>
             <div className="border-2 overflow-hidden rounded-sm">
@@ -50,6 +55,12 @@ const Comp = ({
           </div>
         ))}
       </section>
+      <p>
+        <span className="pr-1">Description:</span>
+        {compDescription
+          ? compDescription
+          : 'WINS EVERY GAME NO DESCRIPTION NEEDED'}
+      </p>
     </section>
   );
 };
