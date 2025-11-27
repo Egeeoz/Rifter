@@ -26,7 +26,7 @@ function SignUpButton() {
   return (
     <Button
       type="submit"
-      className="w-full text-[var(--background)]"
+      className="w-full text-[var(--foreground)] font-normal"
       disabled={pending}
     >
       {pending ? 'Creating account...' : 'Create account'}
@@ -40,14 +40,7 @@ export function SignUpForm({
 }: React.ComponentProps<'div'>) {
   const [state, formAction] = useActionState(signUp, null);
   const [value, setValue] = useState('');
-  const {
-    data,
-    status,
-    version,
-    getChampionImageUrl,
-    getChampionLoadingUrl,
-    getChampionSplashUrl,
-  } = useData();
+  const { data, status, getChampionImageUrl } = useData();
 
   return (
     <div className={cn('flex flex-col gap-6', className)} {...props}>
@@ -60,7 +53,7 @@ export function SignUpForm({
         </CardHeader>
         <CardContent>
           <form action={formAction}>
-            <Avatar className="m-auto w-20 h-20 outline-[3.5px] outline-[var(--border)]">
+            <Avatar className="m-auto w-20 h-20">
               <AvatarImage
                 src={
                   value

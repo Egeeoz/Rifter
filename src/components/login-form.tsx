@@ -21,7 +21,7 @@ function LoginButton() {
   return (
     <Button
       type="submit"
-      className="w-full text-[var(--background)]"
+      className="w-full text-[var(--foreground)] font-normal"
       disabled={pending}
     >
       {pending ? 'Logging in...' : 'Login'}

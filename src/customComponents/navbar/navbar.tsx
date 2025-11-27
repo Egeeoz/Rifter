@@ -9,7 +9,7 @@ import { AuthButtons } from './auth-button';
 
 const Navbar = () => {
   return (
-    <nav className="grid grid-cols-[1fr_auto_1fr] md:grid-cols-[1fr_auto_1fr] py-3 items-center min-h-15 top-0 sticky w-full backdrop-blur-md border-b-1 border-[#28282B]">
+    <nav className="grid grid-cols-[1fr_auto_1fr] md:grid-cols-[1fr_auto_1fr] py-3 items-center min-h-15 top-0 sticky w-full backdrop-blur-md border-b-1 border-[#28282B] z-50">
       <div className="md:hidden"></div>
 
       <h1
