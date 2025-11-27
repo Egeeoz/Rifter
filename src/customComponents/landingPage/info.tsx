@@ -4,6 +4,7 @@ import {
   CardTitle,
   CardDescription,
 } from '@/components/ui/card';
+import { Users } from 'lucide-react';
 
 const Info = () => {
   const infoContent = {
@@ -26,7 +27,12 @@ const Info = () => {
         {infoContent.title.map((title, idx) => (
           <Card key={idx} className="w-1/4 border-foreground/20">
             <CardHeader>
-              <CardTitle className="text-xl">{title}</CardTitle>
+              <CardTitle className="text-xl flex gap-6 items-center">
+                <span>{title}</span>
+                <div className="bg-accent p-2 rounded">
+                  <Users size={20} />
+                </div>
+              </CardTitle>
               <CardDescription className="text-foreground/80">
                 {infoContent.description[idx]}
               </CardDescription>
