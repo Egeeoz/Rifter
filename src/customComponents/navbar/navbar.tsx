@@ -6,6 +6,7 @@ import {
 } from '@/components/ui/navigation-menu';
 import Dropdown from './dropdown';
 import { AuthButtons } from './auth-button';
+import { TextEffect } from '../../../components/motion-primitives/text-effect';
 
 const Navbar = () => {
   return (
@@ -21,7 +22,14 @@ const Navbar = () => {
           textShadow: '2px 2px 0 #fff, 4px 4px 0 #222', // highlight and shadow
         }}
       >
-        Rifter
+        <TextEffect
+          per="char"
+          preset="fade"
+          speedSegment={0.5}
+          speedReveal={0.5}
+        >
+          Rifter
+        </TextEffect>
       </h1>
 
       <NavigationMenu
