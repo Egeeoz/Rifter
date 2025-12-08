@@ -4,6 +4,7 @@ import Navbar from '@/customComponents/navbar/navbar';
 import './globals.css';
 import Footer from '@/customComponents/footer';
 import { usePathname } from 'next/navigation';
+import { notoSans, yellowtail } from './fonts';
 
 export default function RootLayout({
   children,
@@ -16,7 +17,9 @@ export default function RootLayout({
 
   return (
     <html lang="en" className="dark">
-      <body className="flex flex-col">
+      <body
+        className={`flex flex-col ${notoSans.variable} ${yellowtail.variable}`}
+      >
         {!isLoginPage && !isSignUpPage && <Navbar />}
         <main className="min-h-screen ">{children}</main>
         <Footer />
