@@ -4,13 +4,13 @@ import Comp from '../comp';
 
 const Hero = () => {
   return (
-    <div className="flex pt-10 w-[95%] m-auto">
-      <section className="flex flex-col gap-8 w-2/4">
+    <div className="flex flex-col max-w-screen items-center md:flex-row md:w-[95%] m-auto pt-10">
+      <section className="flex flex-col md:gap-8 md:w-2/4 w-[95%] pb-8 gap-6">
         <span className="border-1 rounded-xl px-4 py-1 text-xs flex w-fit items-center gap-1.5">
           <Sparkles size={15} color="#FF7518" />
           Join in on building a new league of legends community
         </span>
-        <h1 className="text-6xl font-bold">
+        <h1 className="text-4xl md:text-left md:text-6xl font-bold">
           Create, customize <br /> and share your own <br />
           compositions
         </h1>
@@ -35,8 +35,10 @@ const Hero = () => {
         </section>
       </section>
       {/*  */}
-      <section className="w-2/4">
-        <h2 className="text-2xl font-semibold pb-1">Comp of the month</h2>
+      <section className="md:w-2/4 w-[95%]">
+        <h2 className="text-2xl font-semibold pb-1 text-center md:text-left">
+          Comp of the month
+        </h2>
         <section>
           <Comp className="bg-card" compName="BEST TEAM EVER" />
         </section>

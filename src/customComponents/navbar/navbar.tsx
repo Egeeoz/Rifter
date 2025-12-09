@@ -25,8 +25,8 @@ const Navbar = () => {
         <TextEffect
           per="char"
           preset="fade"
-          speedSegment={0.5}
-          speedReveal={0.5}
+          speedSegment={1.5}
+          speedReveal={0.25}
         >
           Rifter
         </TextEffect>
