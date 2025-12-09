@@ -19,17 +19,17 @@ const Info = () => {
   const icons = [Users, Share2, Zap];
 
   return (
-    <section className="flex flex-col gap-4 items-center w-full">
+    <section className="flex flex-col gap-4 items-center md:w-full px-2 md:px-0 pb-4 md:pb-0">
       <h1 className="text-4xl font-bold pt-8">Everything you need</h1>
-      <p className="text-foreground/80">
+      <p className="text-foreground/80 text-center">
         A tool for ranked nerds, clash abusers and casual players
       </p>
 
-      <section className="w-[90%] flex justify-center gap-6">
+      <section className="w-full md:w-[90%] flex flex-col md:flex-row justify-center gap-6">
         {infoContent.title.map((title, idx) => {
           const IconComponent = icons[idx];
           return (
-            <Card key={idx} className="w-1/4 border-foreground/20">
+            <Card key={idx} className="w-full md:w-1/4 border-foreground/20">
               <CardHeader>
                 <CardTitle className="text-xl flex gap-6 items-center">
                   <span>{title}</span>
