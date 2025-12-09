@@ -38,13 +38,13 @@ const Comp = ({
       <h3 className="text-xl text-accent italic font-semibold underline">
         {compName}
       </h3>
-      <section className="flex gap-4">
+      <section className="flex md:gap-4 gap-3">
         {displayChampions?.map((champion, idx) => (
-          <div key={idx}>
-            <span className="font-semibold capitalize">
+          <div key={idx} className="">
+            <span className="font-semibold capitalize md:text-base text-sm">
               {exampleData.roles[idx]}
             </span>
-            <div className="border-2 overflow-hidden rounded-sm">
+            <div className="border-2 overflow-hidden rounded-sm md:h-auto md:w-auto">
               <img
                 key={idx}
                 src={getChampionLoadingUrl(champion)}
