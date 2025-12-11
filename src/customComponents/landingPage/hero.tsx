@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Sparkles, BadgeDollarSign } from 'lucide-react';
 import Comp from '../comp';
+import { TextLoop } from '../../../components/motion-primitives/text-loop';
 
 const Hero = () => {
   return (
@@ -14,10 +15,26 @@ const Hero = () => {
           Create, customize <br /> and share your own <br />
           compositions
         </h1>
-        <p className="w-3/4 text-foreground/80 text-lg">
-          A creative space to build your next clash composition or ranked flex
-          comp, share your ideas with others, discuss have fun
-        </p>
+        <div className="text-foreground/80 text-lg inline-flex whitespace-pre-wrap flex-col">
+          <div>
+            A creative space to build your next
+            <TextLoop
+              className="w-1/3 pl-1.5 overflow-y-clip"
+              interval={3}
+              transition={{
+                type: 'spring',
+                stiffness: 900,
+                damping: 90,
+                mass: 8,
+              }}
+            >
+              <span className="font-semibold text-accent">Clash</span>
+              <span className="font-semibold text-accent">Ranked Flex</span>
+              <span className="font-semibold text-accent">Solo duo</span>
+            </TextLoop>
+          </div>
+          <p>composition, share your ideas with others, discuss have fun</p>
+        </div>
         <section className="flex gap-4">
           <Button className="rounded-sm bg-accent hover:bg-accent/80 text-background text-lg py-5">
             Create your comp

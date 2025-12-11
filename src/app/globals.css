@@ -14,6 +14,8 @@
   --color-border: var(--border);
   --color-muted: var(--muted);
   --color-card: var(--card);
+  --color-hover: var(--hover);
+  --color-card-hover: var(--card-hover);
 
   /* Font families */
   --font-noto: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -24,7 +26,6 @@
 :root {
   --radius: 0.625rem;
 
-  /* Palette */
   --white: #ffffff;
   --off-white: #dee2e6;
   --black: #000000;
@@ -32,9 +33,8 @@
   --violet-blue: #1847c9;
   --royal-blue: #0a1f6b;
   --red: #d70040;
-  --dark-blue: #181818;
+  --light-black: #0d0d0d;
 
-  /* Essentials only */
   --background: var(--black);
   --foreground: var(--white);
   --primary: var(--violet-blue);
@@ -43,7 +43,7 @@
   --hover: var(--royal-blue);
   --destructive: var(--red);
   --ring: var(--violet-blue);
-  --card: var(--dark-blue);
+  --card: var(--light-black);
 }
 
 @layer base {
