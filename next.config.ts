@@ -1,9 +1,9 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  output: 'export',
-  basePath: '/Rifter',
-  assetPrefix: '/Rifter/',
+  images: {
+    domains: ['placehold.co', 'ddragon.leagueoflegends.com'],
+  },
 };
 
 export default nextConfig;
