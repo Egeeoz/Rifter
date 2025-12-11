@@ -37,7 +37,11 @@ const Hero = () => {
           <span className="text-sm text-accent/80">
             Currently under build, all features will release soon. Track
             progress on github repo - <br />
-            <a href="https://github.com/Egeeoz/Rifter" target="_blank">
+            <a
+              href="https://github.com/Egeeoz/Rifter"
+              target="_blank"
+              className="underline"
+            >
               https://github.com/Egeeoz/Rifter
             </a>
           </span>
