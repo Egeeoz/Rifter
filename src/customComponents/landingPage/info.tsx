@@ -19,7 +19,7 @@ const Info = () => {
   const icons = [Users, Share2, Zap];
 
   return (
-    <section className="flex flex-col gap-4 items-center md:w-full px-2 md:px-0 pb-4 md:pb-0">
+    <section className="flex flex-col gap-4 items-center md:w-full px-2 md:px-0 pb-4">
       <h1 className="text-4xl font-bold pt-8">Everything you need</h1>
       <p className="text-foreground/80 text-center">
         A tool for ranked nerds, clash abusers and casual players

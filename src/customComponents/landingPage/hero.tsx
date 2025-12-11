@@ -19,7 +19,7 @@ const Hero = () => {
           <div>
             A creative space to build your next
             <TextLoop
-              className="w-1/3 pl-1.5 overflow-y-clip"
+              className="w-1/3 md:pl-1.5 overflow-y-clip"
               interval={3}
               transition={{
                 type: 'spring',
@@ -34,6 +34,13 @@ const Hero = () => {
             </TextLoop>
           </div>
           <p>composition, share your ideas with others, discuss have fun</p>
+          <span className="text-sm text-accent/80">
+            Currently under build, all features will release soon. Track
+            progress on github repo - <br />
+            <a href="https://github.com/Egeeoz/Rifter" target="_blank">
+              https://github.com/Egeeoz/Rifter
+            </a>
+          </span>
         </div>
         <section className="flex gap-4">
           <Button className="rounded-sm bg-accent hover:bg-accent/80 text-background text-lg py-5">

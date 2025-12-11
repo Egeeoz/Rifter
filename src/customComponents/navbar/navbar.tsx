@@ -50,14 +50,14 @@ const Navbar = () => {
         </NavigationMenuList>
       </NavigationMenu>
 
-      <div className="justify-self-end md:pr-10 md:col-start-3 min-w-0 flex items-center">
+      {/* <div className="justify-self-end md:pr-10 md:col-start-3 min-w-0 flex items-center">
         <NavigationMenu viewport={false} className="hidden md:flex">
           <NavigationMenuList className="gap-3">
             <AuthButtons />
           </NavigationMenuList>
         </NavigationMenu>
         <Dropdown className="md:hidden flex items-center pr-5" />
-      </div>
+      </div> */}
     </nav>
   );
 };
