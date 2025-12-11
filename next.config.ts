@@ -1,5 +1,9 @@
 import type { NextConfig } from 'next';
 
-const nextConfig: NextConfig = {};
+const nextConfig: NextConfig = {
+  output: 'export',
+  basePath: '/Rifter',
+  assetPrefix: '/Rifter/',
+};
 
 export default nextConfig;
