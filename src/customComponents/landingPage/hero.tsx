@@ -25,7 +25,7 @@ const Hero = () => {
                 type: 'spring',
                 stiffness: 900,
                 damping: 90,
-                mass: 10,
+                mass: 8,
               }}
             >
               <span className="font-semibold text-accent">Clash</span>
