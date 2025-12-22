@@ -10,7 +10,7 @@ import { TextEffect } from '../../../components/motion-primitives/text-effect';
 
 const Navbar = () => {
   return (
-    <nav className="grid grid-cols-[1fr_auto_1fr] md:grid-cols-[1fr_auto_1fr] py-3 items-center min-h-15 top-0 sticky w-full backdrop-blur-md border-b-1 border-[#28282B] z-50">
+    <nav className="grid grid-cols-[1fr_auto_1fr] md:grid-cols-[1fr_auto_1fr] py-3 items-center min-h-15 top-0 sticky w-full backdrop-blur-md border-b-1 border-[#28282B] z-50 h-22">
       <div className="md:hidden"></div>
 
       <h1
