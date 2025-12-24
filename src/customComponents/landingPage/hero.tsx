@@ -19,7 +19,7 @@ const Hero = () => {
           <div>
             A creative space to build your next
             <TextLoop
-              className="w-1/3 pl-1.5 overflow-y-clip"
+              className="w-1/3 md:pl-1.5 overflow-y-clip"
               interval={3}
               transition={{
                 type: 'spring',
