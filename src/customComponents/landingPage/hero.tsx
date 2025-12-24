@@ -19,7 +19,7 @@ const Hero = () => {
           <div>
             A creative space to build your next
             <TextLoop
-              className="w-1/3 pl-1.5 overflow-y-clip"
+              className="w-1/3 md:pl-1.5 overflow-y-clip"
               interval={3}
               transition={{
                 type: 'spring',
@@ -39,7 +39,7 @@ const Hero = () => {
           <Button className="rounded-sm bg-accent hover:bg-accent/80 text-background text-lg py-5">
             Create your comp
           </Button>
-          <Button className="rounded-sm text-lg bg-inherit border-1 border-border/60 py-5 hover:bg-background hover:text-foreground/80 ">
+          <Button className="rounded-sm text-lg bg-inherit border-1 border-border/60 py-5 hover:bg-background hover:text-foreground/80">
             Learn more
           </Button>
         </section>

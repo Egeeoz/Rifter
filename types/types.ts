@@ -7,6 +7,7 @@ export interface UserType {
   id: string;
   username: string;
   email: string;
+  favorite_champ: string;
   created_at: string;
 }
 

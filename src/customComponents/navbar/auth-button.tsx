@@ -21,7 +21,7 @@ export function AuthButtons() {
   // User is not logged in - show login/signup buttons
   return (
     <>
-      <NavigationMenuItem className="">
+      <NavigationMenuItem>
         <NavigationMenuLink
           href="/login"
           className="font-normal px-4 py-1.5 border-1 text-foreground/80 hover:text-foreground/100 flex flex-row items-center border-border"

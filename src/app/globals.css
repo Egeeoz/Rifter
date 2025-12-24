@@ -16,6 +16,7 @@
   --color-card: var(--card);
   --color-hover: var(--hover);
   --color-card-hover: var(--card-hover);
+  --color-ring: var(--ring);
 
   /* Font families */
   --font-noto: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',

@@ -4,14 +4,29 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
 } from '@/components/ui/navigation-menu';
+import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import Dropdown from './dropdown';
 import { AuthButtons } from './auth-button';
 import { TextEffect } from '../../../components/motion-primitives/text-effect';
+import { useAuth } from '@/hooks/useAuth';
+import { useData } from '@/hooks/useData';
 
 const Navbar = () => {
+  const { user } = useAuth();
+  const { getChampionImageUrl } = useData();
   return (
-    <nav className="grid grid-cols-[1fr_auto_1fr] md:grid-cols-[1fr_auto_1fr] py-3 items-center min-h-15 top-0 sticky w-full backdrop-blur-md border-b-1 border-[#28282B] z-50">
-      <div className="md:hidden"></div>
+    <nav className="grid grid-cols-[1fr_auto_1fr] md:grid-cols-[1fr_auto_1fr] py-3 items-center min-h-15 top-0 sticky w-full backdrop-blur-md border-b-1 border-[#28282B] z-50 h-22">
+      <div className="md:hidden pl-5">
+        <Avatar className="w-14 h-14 overflow-hidden rounded-full border-2 border-ring">
+          <AvatarImage
+            src={
+              (user && getChampionImageUrl(user?.favorite_champ)) ||
+              'https://placehold.co/600x400'
+            }
+            className="w-full h-full object-cover object-center transform scale-115"
+          />
+        </Avatar>
+      </div>
 
       <h1
         className="md:justify-self-start md:pl-10 text-5xl text-center md:col-start-1 text-[#FF7518]"

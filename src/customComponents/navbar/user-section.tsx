@@ -1,42 +1,44 @@
 'use client';
-import React from 'react';
 import { Button } from '@/components/ui/button';
 import { logout } from '@/app/actions/auth';
 import { TextShimmer } from '../../../components/motion-primitives/text-shimmer';
+import { Avatar, AvatarImage } from '@radix-ui/react-avatar';
 
 import { useAuth } from '@/hooks/useAuth';
+import { useData } from '@/hooks/useData';
 
 const UserSection = () => {
   const { user } = useAuth();
+  const { getChampionImageUrl } = useData();
 
   return (
-    <div className="flex gap-0.5">
-      <img
-        src="https://placehold.co/600x400"
-        alt="profileImg"
-        className="w-16 aspect-square object-cover border-1 border-red-500"
-      />
+    <div className="flex gap-2">
+      <Avatar className="w-20 aspect-square overflow-hidden rounded-full border-2 border-ring">
+        <AvatarImage
+          src={
+            (user && getChampionImageUrl(user?.favorite_champ)) ||
+            'https://placehold.co/600x400'
+          }
+          className="w-full h-full object-cover object-center transform scale-115"
+        />
+      </Avatar>
       <div className="w-full flex flex-col justify-between">
-        <div className="flex border-1 border-red-500 divide-x-1 divide-red-500 ">
-          <div className="w-2/3 text-center mt-auto">
-            {user?.username || (
-              <TextShimmer className="font-mono text-sm" duration={1}>
-                Loading...
-              </TextShimmer>
-            )}
-          </div>
-          <div className="ml-4">1</div>
-          {/* amount of comps created will be here, use static number instead for now */}
+        <div className="text-left border-b-2 border-ring">
+          {user?.username || (
+            <TextShimmer className="font-mono text-sm" duration={1}>
+              Loading...
+            </TextShimmer>
+          )}
         </div>
-        <div className="flex gap-0.5 mt-0.5">
+        <div className="flex gap-1 mt-0.5">
           <Button className="flex-1 rounded-xs text-base font-medium transition-all outline-none bg-[var(--accent)] hover:bg-accent/80 text-[var(--background)]">
             My comps
           </Button>
-          <Button className="flex-1 rounded-xs text-base font-medium transition-all outline-none">
+          <Button className="flex-1 rounded-xs text-base font-medium transition-all bg-inherit border-1 border-border/60 hover:bg-background hover:text-foreground/80">
             Profile
           </Button>
           <Button
-            className="flex-1 rounded-xs text-base font-medium transition-all outline-none"
+            className="flex-1 rounded-xs text-base font-medium transition-all bg-inherit border-1 border-border/60 hover:bg-background hover:text-foreground/80"
             onClick={logout}
           >
             Logout
