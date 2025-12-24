@@ -39,7 +39,7 @@ const Hero = () => {
           <Button className="rounded-sm bg-accent hover:bg-accent/80 text-background text-lg py-5">
             Create your comp
           </Button>
-          <Button className="rounded-sm text-lg bg-inherit border-1 border-border/60 py-5 hover:bg-background hover:text-foreground/80 ">
+          <Button className="rounded-sm text-lg bg-inherit border-1 border-border/60 py-5 hover:bg-background hover:text-foreground/80">
             Learn more
           </Button>
         </section>
